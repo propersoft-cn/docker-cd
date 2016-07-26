@@ -1,0 +1,13 @@
+nginx:
+  image: nginx:alpine
+  links:
+    - isj
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+  expose:
+    - "8080"
+
+isj:
+  image: propersoft/docker-cd:isj
+  environment:
+    - GH_OAUTH_TOKEN
