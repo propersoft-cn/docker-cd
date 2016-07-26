@@ -1,7 +1,13 @@
 nginx:
-  image: nginx
+  image: nginx:alpine
+  links:
+    - pea
   volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf
   ports:
     - "9000:8080"
-  net: "host"
+
+pea:
+  image: propersoft/docker-cd:pea
+  environment:
+    GH_OAUTH_TOKEN: <github_token>
