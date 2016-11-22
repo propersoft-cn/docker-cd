@@ -1,7 +1,7 @@
 FROM node:latest
 MAINTAINER Alpha Hinex <AlphaHinex@gmail.com>
 
-ENV WORKDIR /opt/isj
+ENV WORKDIR /opt/ihos
 
 ADD entrypoint.sh /entrypoint.sh
 
