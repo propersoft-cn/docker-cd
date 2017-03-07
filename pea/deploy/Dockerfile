@@ -11,6 +11,6 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* \
  && chmod +x /pea-cd-entrypoint.sh
 
-EXPOSE 9000 9090
+EXPOSE 9000 8080
 
 ENTRYPOINT ["/pea-cd-entrypoint.sh"]
