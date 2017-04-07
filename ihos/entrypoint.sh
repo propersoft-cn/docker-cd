@@ -21,6 +21,7 @@ curl -O $URL
 if [ -e $HC_HOME/artifacts.zip ];
 then
     echo 'Unziping artifacts.zip...'
+    rm -rf $HC_HOME/www
     unzip -qq $HC_HOME/artifacts.zip -d $HC_HOME/www -x index.html *.apk
     rm -f $HC_HOME/artifacts.zip
     echo 'Done'
