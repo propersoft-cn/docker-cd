@@ -11,6 +11,4 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* \
  && chmod +x /entrypoint.sh
 
-EXPOSE 9000 9090
-
 ENTRYPOINT ["/entrypoint.sh"]
