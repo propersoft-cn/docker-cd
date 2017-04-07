@@ -12,6 +12,20 @@ then
     git clone https://${GH_OAUTH_TOKEN}@github.com/propersoft-cn/ihos.git -b fe-deploy --depth=1 $WORKDIR
 fi
 
+HC_HOME=/opt/hc
+mkdir -p $HC_HOME
+cd $HC_HOME
+URL=https://cloud.propersoft.cn/teamcities/guestAuth/repository/downloadAll/IHos_Demo/lastSuccessful/artifacts.zip
+echo 'Downloading from '$URL
+curl -O $URL
+if [ -e $HC_HOME/artifacts.zip ];
+then
+    echo 'Unziping artifacts.zip...'
+    unzip -qq $HC_HOME/artifacts.zip -d $HC_HOME/www -x index.html *.apk
+    rm -f $HC_HOME/artifacts.zip
+    echo 'Done'
+fi
+
 # app-dev
 if [ -d "$WORKDIR/app-dev" ];
 then
@@ -19,6 +33,8 @@ then
     node proxy/proxy-server.js &
     cd $WORKDIR/app-dev/www
     python -m SimpleHTTPServer 9000 &
+    cd $HC_HOME/www
+    python -m SimpleHTTPServer 8000 &
 fi
 
 # app-master
