@@ -8,6 +8,10 @@ nginx:
     - "8080"
 
 ihos:
-  image: propersoft/docker-cd:ihos
+  image: node:latest
+  volumes:
+    - ./entrypoint.sh:/entrypoint.sh
   environment:
+    - WORKDIR=/opt/ihos
     - GH_OAUTH_TOKEN
+  entrypoint: /entrypoint.sh
