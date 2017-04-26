@@ -2,6 +2,7 @@
 if [ -d "$WORKDIR" ];
 then
     cd $WORKDIR
+    git checkout .
     echo "Pull deploy branch ..."
     git pull https://${GH_OAUTH_TOKEN}@github.com/propersoft-cn/ihos.git fe-deploy
 fi
