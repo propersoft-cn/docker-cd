@@ -14,11 +14,9 @@ fi
 
 cd $WORKDIR
 
-s_token='eyJpZCI6ImRjNjU3NjZjLTAxNzYtNGExZS1hZDBlLWRkMDZiYTY0NWM3bCIsIm5hbWUiOiJhZG1pbiJ9.eyJlbXBOYW1lIjpudWxsLCJyb2xlcyI6ImEsYixjIn0.jgFLzfaFjADFUfti3jGMNqhYb1KN1anU8OkXKh3uKwk'
+S_OAUTH_TOKEN='eyJpZCI6ImRjNjU3NjZjLTAxNzYtNGExZS1hZDBlLWRkMDZiYTY0NWM3bCIsIm5hbWUiOiJhZG1pbiJ9.eyJlbXBOYW1lIjpudWxsLCJyb2xlcyI6ImEsYixjIn0.jgFLzfaFjADFUfti3jGMNqhYb1KN1anU8OkXKh3uKwk'
 
-t_token='cHJvcGVyOnByb3BlckBwYXNz'
-
-sed -i s#$s_token#$t_token#g $WORKDIR/proxy/modules/auth/login/handler.js 
+sed -i s#$S_OAUTH_TOKEN#$T_OAUTH_TOKEN#g $WORKDIR/proxy/modules/auth/login/handler.js 
 sed -i s#'Bearer '#'Basic '#g $WORKDIR/dist/scripts/scripts.* 
 node proxy/proxy-server.js &
 
