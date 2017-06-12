@@ -69,13 +69,13 @@ then
     python -m SimpleHTTPServer 9003 &
 fi
 
-# app-parking
-if [ -d "$WORKDIR/app-parking" ];
+# app-3.x
+if [ -d "$WORKDIR/app-3.x" ];
 then
-    cd $WORKDIR/app-parking
+    cd $WORKDIR/app-3.x
     sed -i "s/8080/8084/" proxy/proxy-server.js
     node proxy/proxy-server.js &
-    cd $WORKDIR/app-parking/www
+    cd $WORKDIR/app-3.x/www
     python -m SimpleHTTPServer 9004 &
 fi
 
