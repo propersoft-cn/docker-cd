@@ -1,0 +1,17 @@
+nginx:
+  image: nginx:alpine
+  links:
+    - icmp
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+  expose:
+    - "8080"
+
+icmp:
+  image: propersoft/docker-cd:icmp
+  volumes:
+    - ./entrypoint.sh:/entrypoint.sh
+  environment:
+    - WORKDIR=/opt/icmp
+    - GH_OAUTH_TOKEN
+  entrypoint: /entrypoint.sh
