@@ -9,5 +9,13 @@ nginx:
 
 pea:
   image: propersoft/docker-cd:pea
+  volumes:
+    - ./pea-cd-entrypoint.sh:/pea-cd-entrypoint.sh 
   environment:
+    - WORKDIR=/opt/pea
     - GH_OAUTH_TOKEN
+    - T_OAUTH_TOKEN
+  expose:
+    - "9000"  
+    - "8080"     
+  entrypoint: /pea-cd-entrypoint.sh
