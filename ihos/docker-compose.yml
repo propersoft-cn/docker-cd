@@ -4,6 +4,7 @@ nginx:
     - ihos
   volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf
+    - ./pass:/etc/nginx/pass
   expose:
     - "8080"
 
