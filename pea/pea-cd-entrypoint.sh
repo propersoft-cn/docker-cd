@@ -12,8 +12,13 @@ then
     git clone https://${GH_OAUTH_TOKEN}@github.com/propersoft-cn/proper-enterprise-app.git -b deploy --depth=1 $WORKDIR
 fi
 
-cd $WORKDIR
-node proxy/proxy-server.js &
+# master
+if [ -d "$WORKDIR/master" ];
+then
+    cd $WORKDIR/master
+    node proxy/proxy-server.js &
+    cd $WORKDIR/master/dist
+    python -m SimpleHTTPServer 9000 &
+fi
 
-cd $WORKDIR/dist
-python -m SimpleHTTPServer 9000
+tail -f /dev/null
