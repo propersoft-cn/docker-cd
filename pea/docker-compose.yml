@@ -14,7 +14,6 @@ pea:
   environment:
     - WORKDIR=/opt/pea
     - GH_OAUTH_TOKEN
-    - T_OAUTH_TOKEN
   expose:
     - "9000"  
     - "8080"     
