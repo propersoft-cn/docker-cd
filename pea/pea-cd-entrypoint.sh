@@ -33,4 +33,18 @@ then
     python -m SimpleHTTPServer 9003 &
 fi
 
+# ng2
+if [ -d "$WORKDIR/ng2" ];
+then
+    cd $WORKDIR/ng2
+    S='<base href="/">'
+    T='<base href="/pea/ng2/">'
+
+    sed -i "s#$S#$T#g" dist/index.html
+    sed -i "s/8080/8084/" proxy/proxy-server.js
+    node proxy/proxy-server.js &
+    cd $WORKDIR/ng2/dist
+    python -m SimpleHTTPServer 9004 &
+fi
+
 tail -f /dev/null
