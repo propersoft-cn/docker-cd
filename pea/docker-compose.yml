@@ -15,7 +15,7 @@ pea:
     - ./pea-cd-entrypoint.sh:/pea-cd-entrypoint.sh 
   environment:
     - WORKDIR=/opt/pea
-    - GH_OAUTH_TOKEN=2d6627552c19c1c8b9a8a0aee7b3ef7e108e05ec
+    - GH_OAUTH_TOKEN=
   expose:
     - "9000"  
     - "8080"     
