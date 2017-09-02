@@ -1,0 +1,17 @@
+pep1_official:
+  image: propersoft/ihos:7.0.77-jre8
+  volumes:
+    - ./pep1/tomcat/webapps:/usr/local/tomcat/webapps
+    - ./pep1/tomcat/logs:/usr/local/tomcat/logs
+  links:
+    - mongo-pep
+  ports:
+    - "39091:8080"
+  environment:
+    - JAVA_OPTS=-server -XX:PermSize=4096M -XX:MaxPermSize=8192m -Xms4096m -Xmx16384m
+
+mongo-pep:
+  image: mongo
+  volumes:
+    - ./mongo/data:/data/db
+

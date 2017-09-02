@@ -17,8 +17,12 @@ fi
 if [ -d "$WORKDIR/master" ];
 then
     cd $WORKDIR/master
+    S='"./api"'
+    T='location.protocol+"//"+location.host+"/pea/pep"'
+
+    sed -i "s#$S#$T#g" dist/scripts/scripts*
     sed -i "s/8080/8081/" proxy/proxy-server.js
-    node proxy/proxy-server.js &
+    #node proxy/proxy-server.js &
     cd $WORKDIR/master/dist
     python -m SimpleHTTPServer 9001 &
 fi

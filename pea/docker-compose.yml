@@ -2,6 +2,8 @@ nginx:
   image: nginx:alpine
   links:
     - pea
+  external_links:
+    - pea_pep1_official_1
   volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf
   expose:
@@ -13,8 +15,9 @@ pea:
     - ./pea-cd-entrypoint.sh:/pea-cd-entrypoint.sh 
   environment:
     - WORKDIR=/opt/pea
-    - GH_OAUTH_TOKEN
+    - GH_OAUTH_TOKEN=
   expose:
     - "9000"  
     - "8080"     
+  entrypoint: chmod +x /pea-cd-entrypoint.sh
   entrypoint: /pea-cd-entrypoint.sh
