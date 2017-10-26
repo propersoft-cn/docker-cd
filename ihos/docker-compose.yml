@@ -14,5 +14,4 @@ ihos:
     - ./entrypoint.sh:/entrypoint.sh
   environment:
     - WORKDIR=/opt/ihos
-    - GH_OAUTH_TOKEN
   entrypoint: /entrypoint.sh
