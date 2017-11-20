@@ -13,5 +13,4 @@ icmp:
     - ./entrypoint.sh:/entrypoint.sh
   environment:
     - WORKDIR=/opt/icmp
-    - GH_OAUTH_TOKEN
   entrypoint: /entrypoint.sh
