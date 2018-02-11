@@ -51,4 +51,19 @@ then
     python -m SimpleHTTPServer 9004 &
 fi
 
+# master
+if [ -d "$WORKDIR/master" ];
+then
+    cd $WORKDIR/master
+    S='<base href="/">'
+    T='<base href="/pea/master/">'
+
+    sed -i "s#$S#$T#g" dist/index.html
+    sed -i "s/8080/8085/" proxy/proxy-server.js
+    node proxy/proxy-server.js &
+    cd $WORKDIR/master/dist
+    python -m SimpleHTTPServer 9005 &
+fi
+
+
 tail -f /dev/null
