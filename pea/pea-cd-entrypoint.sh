@@ -59,7 +59,7 @@ then
     T='<base href="/pea/master/">'
 
     sed -i "s#$S#$T#g" dist/index.html
-    sed -i "s/8080/8085/" proxy/proxy-server.js
+    sed -i "s/9000/8085/" proxy/proxy-server.js
     node proxy/proxy-server.js &
     cd $WORKDIR/master/dist
     python -m SimpleHTTPServer 9005 &
